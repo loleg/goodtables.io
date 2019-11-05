@@ -14,6 +14,8 @@ Preliminary designs and specifications can be found in the [wiki](https://github
 
 ## Development
 
+In addition to the steps here, there is a Dockerfile available. See [issue #333](https://github.com/frictionlessdata/goodtables.io/issues/333) if you'd like to help get this working.
+
 ### Installation
 
 We currently use Redis as a broker:
@@ -54,9 +56,7 @@ print(key.decode('utf-8'))
 
 You can also run it as a one-line command as:
 
-```
-python3 -c "import os; import base64; key = base64.urlsafe_b64encode(os.urandom(32)); print(key.decode('utf-8'))"
-```.
+`python3 -c "import os; import base64; key = base64.urlsafe_b64encode(os.urandom(32)); print(key.decode('utf-8'))"`
 
 ### Migrations
 
@@ -158,4 +158,3 @@ To add an S3 Bucket:
 * Click on the "Add Bucket" button from the dashboard.
 * Enter an AWS Access Key Id and a Secret Access Key pair, and the name of the bucket. Your keys should allow reading the contents of the bucket, as well as creating notification events on it. Click on "Add bucket"
 * From now on, every time you update a file on the S3 bucket (upload or delete) a validation job will be run on goodtables.io.
-
